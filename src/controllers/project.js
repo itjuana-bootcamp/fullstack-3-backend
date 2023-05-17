@@ -13,3 +13,18 @@ exports.getProjects = async (req, res) => {
     });
   }
 };
+
+exports.createProject = async (req, res) => {
+  try {
+    let projectSaved = await ProjectService.createProject(req.body);
+    res.status(201).json({
+      message: "Project created",
+      projectSaved: projectSaved,
+    });
+  } catch (err) {
+    console.error("err", err);
+    res.status(400).json({
+      message: "Was not able to create the project",
+    });
+  }
+};
