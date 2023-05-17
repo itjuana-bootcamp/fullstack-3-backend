@@ -14,6 +14,20 @@ exports.getProjects = async (req, res) => {
   }
 };
 
+exports.getProjectById = async (req, res) => {
+  try {
+    let project = await ProjectService.getProjectById(req.params.id);
+    res.json({
+      project: project,
+    });
+  } catch (err) {
+    console.error("err", err);
+    res.status(404).json({
+      message: "Project was not found",
+    });
+  }
+};
+
 exports.createProject = async (req, res) => {
   try {
     let projectSaved = await ProjectService.createProject(req.body);

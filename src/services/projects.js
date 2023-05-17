@@ -1,8 +1,13 @@
 const Project = require("../models/project");
 
 exports.getProjects = async () => {
-  let projects = await Project.find().exec();
+  let projects = await Project.find().lean().exec();
   return projects;
+};
+
+exports.getProjectById = async (id) => {
+  let project = await Project.findById(id).lean().exec();
+  return project;
 };
 
 exports.createProject = async (requestBody) => {
