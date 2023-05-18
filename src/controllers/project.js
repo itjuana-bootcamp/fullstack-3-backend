@@ -42,3 +42,17 @@ exports.createProject = async (req, res) => {
     });
   }
 };
+
+exports.updateProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const projectData = req.body;
+
+    const updatedProject = await ProjectService.updateProject(id, projectData);
+
+    res.status(200).json(updatedProject);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal error" });
+  }
+};
