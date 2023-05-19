@@ -56,3 +56,16 @@ exports.updateProject = async (req, res) => {
     res.status(500).json({ message: "Internal error" });
   }
 };
+
+exports.deleteProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await ProjectService.deleteProject(id);
+
+    res.status(204).json();
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal error" });
+  }
+};
