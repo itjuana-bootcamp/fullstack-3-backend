@@ -44,7 +44,7 @@ exports.createProject = async (req, res) => {
 };
 
 exports.updateProject = async (req, res) => {
-  try 
+  try {
     const { id } = req.params;
     const projectData = req.body;
 
