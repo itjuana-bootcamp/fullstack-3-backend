@@ -17,7 +17,7 @@ const connectDB = async () => {
   }
 };
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(Number(process.env.PORT), () => {
   console.log(`Server is running in ${process.env.PORT}`);
   connectDB();
 });
