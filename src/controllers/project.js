@@ -50,7 +50,7 @@ exports.updateProject = async (req, res) => {
 
     const updatedProject = await ProjectService.updateProject(id, projectData);
 
-    res.status(200).json(updatedProject);
+    res.status(201).json(updatedProject);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal error" });
