@@ -6,6 +6,7 @@
   "scripts": {
     "testCoverage": "jest --coverage",
     "test": "jest --watch",
+    "test-ci": "jest --verbose --forceExit",
     "start": "nodemon app.js"
   },
   "author": "",
