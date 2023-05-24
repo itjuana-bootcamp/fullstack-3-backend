@@ -7,6 +7,8 @@ require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+const port = process.env.PORT || 3001;
+
 app.use("/projects", ProjectRoutes);
 
 const connectDB = async () => {
@@ -17,8 +19,8 @@ const connectDB = async () => {
   }
 };
 
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server is running in ${process.env.PORT}`);
+const server = app.listen(port, () => {
+  console.log(`Server is running in ${port}`);
   connectDB();
 });
 
